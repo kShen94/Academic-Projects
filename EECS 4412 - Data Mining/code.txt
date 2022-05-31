@@ -1,0 +1,292 @@
+Task 1:
+#import statements
+import pandas as pd
+import matplotlib.pyplot as plt
+from pandas.plotting import parallel_coordinates
+
+#create dataframe
+df = pd.read_csv("200_matches.csv", header = 0)
+df.dropna(inplace=True)
+
+#select home and away columns respectively
+selected_columns = df[['Home Team Possession %', 'Home Team Pass Success %', 'Home Team Total Shots', 'Home Team Blocked Shots', 'Home Team Rating', 'league']]
+selected_columns2 = df[['Away Team Possession %', 'Away Team Pass Success %', 'Away Team Total Shots', 'Away Team Blocked Shots', 'Away Team Rating', 'league']]
+
+#Plot home team statistics per league
+#set figure size
+plt.figure(figsize=(18,8))
+
+#plot parallel coordinates graph 
+parallel_coordinates(selected_columns, "league", color=['red', 'blue', 'green', 'violet', 'yellow'])
+plt.show()
+
+#Plot away team statistics per league
+#set figure size
+plt.figure(figsize=(18,8))
+
+#plot parallel coordinates graph 
+parallel_coordinates(selected_columns2, "league", color=['red', 'blue', 'green', 'violet', 'yellow'])
+plt.show()
+
+Task3:
+
+#import statement
+import pandas as pd
+
+#load csv file into dataframe
+df = pd.read_csv('New Combined Data.csv', header=0)
+
+#select specific coloumn(s) for analysis
+team_a_fouls = df["Home Team Fouls"]
+winning_Team_Possession_Difference = df["Winning Team Possession Difference %"]
+
+#Team A fouls selected as Ratio dimension
+#Team A is home team
+team_a_fouls_zscore = team_a_fouls.copy()
+team_a_fouls_minmax = team_a_fouls.copy()
+
+#Winning team possession difference selected as interval dimension
+winning_Team_Possession_Difference_zscore = winning_Team_Possession_Difference.copy()
+winning_Team_Possession_Difference_minmax = winning_Team_Possession_Difference.copy()
+
+#Calculate Z-Score
+team_a_fouls_zscore = (team_a_fouls_zscore - team_a_fouls_zscore.mean()) / team_a_fouls_zscore.std()
+winning_Team_Possession_Difference_zscore = (winning_Team_Possession_Difference_zscore - winning_Team_Possession_Difference_zscore.mean()) / winning_Team_Possession_Difference_zscore.std()
+
+#Calculate Min-Max
+team_a_fouls_minmax = (team_a_fouls_minmax - team_a_fouls_minmax.min()) / (team_a_fouls_minmax.max() - team_a_fouls_minmax.min())
+winning_Team_Possession_Difference_minmax = (winning_Team_Possession_Difference_minmax - winning_Team_Possession_Difference_minmax.min()) / (winning_Team_Possession_Difference_minmax.max() - winning_Team_Possession_Difference_minmax.min())
+
+#format results
+raw_results = {"Home Team Fouls": team_a_fouls, "Home Team Fouls Z-Score" : team_a_fouls_zscore, "Home Team Fouls Min-Max": team_a_fouls_minmax, "Winning Team Possession Difference %": winning_Team_Possession_Difference, "Winning Team Possession Difference Z-Score": winning_Team_Possession_Difference_zscore, "Winning Team Possession Difference Min-Max": winning_Team_Possession_Difference_minmax}
+
+#Insert results into dataframe
+results_df = pd.DataFrame(raw_results, columns = ["Home Team Fouls", "Home Team Fouls Z-Score", "Home Team Fouls Min-Max","Winning Team Possession Difference %", "Winning Team Possession Difference Z-Score", "Winning Team Possession Difference Min-Max"])
+
+#Export results to csv
+results_df.to_csv('216168486-216442428-212298535—T3.csv', encoding='utf-8', index=False)
+
+Task 4:
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("200_selection.csv")
+df
+df.info()
+selected_columns = df[["Home Team Possession %","Away Team Possession %", "Home Team Pass Success %", "Away Team Pass Success %", 
+                       "Home Team On Target Shots", "Away Team On Target Shots", 
+                       "Home Team Blocked Shots", "Away Team Blocked Shots", "Home Team Corners",
+                       "Away Team Corners", "Home Team"]]
+df2 = selected_columns.copy()
+df2
+from sklearn.preprocessing import StandardScaler
+
+# Get the list of dimensions we have in the dataframe, not including our target.
+dimensions = ["Home Team Possession %","Away Team Possession %", "Home Team Pass Success %", "Away Team Pass Success %", 
+                       "Home Team On Target Shots", "Away Team On Target Shots", 
+                       "Home Team Blocked Shots", "Away Team Blocked Shots", "Home Team Corners",
+                       "Away Team Corners"]
+# Set the features to an array x
+x = df2.loc[:, dimensions].values
+
+# Set the target to an array y
+y = df2.loc[:,['Home Team']].values
+
+# Standardize the feature array
+x = StandardScaler().fit_transform(x)
+
+# Convert the array x into a dataframe to visualize it
+feature_df = pd.DataFrame(x, columns = ["Home Team Possession %", "Away Team Possession %", "Home Team Pass Success %", "Away Team Pass Success %", 
+                       "Home Team On Target Shots", "Away Team On Target Shots", 
+                       "Home Team Blocked Shots", "Away Team Blocked Shots", "Home Team Corners",
+                       "Away Team Corners"])
+# Output the standardized dimensions
+feature_df
+from sklearn.decomposition import PCA
+
+# Set number of PC's to 2
+pca = PCA(n_components=10)
+
+# Transform the feature array x into 2 principal components
+principal_components = pca.fit_transform(x)
+
+# Create a new dataframe with the two created PC's
+principal_df = pd.DataFrame(data = principal_components, columns = ['PC1', 'PC2', 'PC3', 'PC4', 'PC5', 'PC6'
+                                                                   ,'PC7', 'PC8', 'PC9', 'PC10'])
+principal_df
+final_df = pd.concat([principal_df, df[['Home Team']]], axis = 1)
+final_df.rename(columns = {'Home Team' : 'Home Team Result'}, inplace = True)
+final_df
+def renameClass(x):
+    if x == 0:
+        return 'Win'
+    elif x == 1:
+        return 'Loss'
+    else:
+        return 'Tie'
+final_df["Home Team Result"] = final_df["Home Team Result"].map(renameClass)
+final_df
+per_var = np.round(pca.explained_variance_ratio_* 100, decimals=1)
+labels = ['PC' + str(x) for x in range(1, len(per_var)+1)]
+plt.bar(x=range(1,len(per_var)+1), height=per_var, tick_label=labels)
+plt.ylabel('Percentage of Explained Variance')
+plt.xlabel('Principal Component')
+plt.title('Scree Plot')
+plt.show()
+import matplotlib.pyplot as plt
+
+fig = plt.figure(figsize = (8,8))
+ax = fig.add_subplot(1,1,1) 
+ax.set_xlabel('Principal Component 1', fontsize = 15)
+ax.set_ylabel('Principal Component 2', fontsize = 15)
+ax.set_title('2 component PCA', fontsize = 20)
+targets = ["Win", "Loss", "Tie"]
+colors = ['r', 'g', 'b']
+for target, color in zip(targets,colors):
+    indicesToKeep = final_df['Home Team Result'] == target
+    ax.scatter(final_df.loc[indicesToKeep, 'PC1']
+               , final_df.loc[indicesToKeep, 'PC2']
+               , c = color
+               , s = 50)
+ax.legend(targets)
+ax.grid()
+final_df = final_df.drop(['PC3', 'PC4', 'PC5', 'PC6','PC7', 'PC8', 'PC9', 'PC10', 'Home Team Result'], axis = 1)
+final_df.to_csv('216168486-216442428-212298535—T4.csv')
+
+Task 5:
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+df = pd.read_csv("Soccer_Data_Final.csv")
+df
+selected_columns = df[["Home Team Possession %","Away Team Possession %", "Home Team Pass Success %", "Away Team Pass Success %", 
+                       "Home Team On Target Shots", "Away Team On Target Shots"]]
+df2 = selected_columns.copy()
+df2
+df2 = df2.sample(n = 1000)
+from sklearn.preprocessing import StandardScaler
+x = df2.loc[:,:].values
+x = StandardScaler().fit_transform(x)
+feature_df = pd.DataFrame(x, columns = ["Home Team Possession %","Away Team Possession %", "Home Team Pass Success %", "Away Team Pass Success %", 
+                       "Home Team On Target Shots", "Away Team On Target Shots"])
+feature_df
+feature_df = feature_df.sample(n = 1000)
+feature_df
+feature_df.to_csv("216168486-216442428-212298535—T5DataNorm.csv")
+
+np_row = np.empty((0, 1000), int)
+np_matrix = np.empty((0,1000), int)
+for index, row in feature_df.iterrows():
+    for index2, row2 in feature_df.iterrows():
+        dist = np.linalg.norm(row.to_numpy() - row2.to_numpy())
+        np_row = np.append(np_row, dist)
+    np_matrix = np.append(np_matrix, [np_row], axis=0)
+    np_row = np.empty((0, 1000), int)
+df3 = pd.DataFrame(np_matrix)
+df3
+df3.to_csv('216168486-216442428-212298535—T5EU.csv')
+
+from numpy import dot
+from numpy.linalg import norm
+
+np_row = np.empty((0, 1000), int)
+np_matrix = np.empty((0,1000), int)
+for index, row in feature_df.iterrows():
+    for index2, row2 in feature_df.iterrows():
+        cos_dist = dot(row.to_numpy(), row2.to_numpy())/(norm(row.to_numpy())*norm(row2.to_numpy()))
+        np_row = np.append(np_row, cos_dist)
+    np_matrix = np.append(np_matrix, [np_row], axis=0)
+    np_row = np.empty((0, 1000), int)
+
+df3 = pd.DataFrame(np_matrix)
+df3
+df3.to_csv("216168486-216442428-212298535—T5CO.csv")
+
+Mahalanobis Distance:
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+df = pd.read_csv("covariance.csv")
+df
+data = pd.read_csv("216168486-216442428-212298535—T5DataNorm.csv")
+data = data.drop(["Unnamed: 0"], axis=1)
+data
+np_row = np.empty((0, 1000), int)
+np_matrix = np.empty((0,1000), int)
+
+for index, row in data.iterrows():
+    for index2, row2 in data.iterrows():
+        a1 = np.subtract(row.to_numpy(), row2.to_numpy())
+        a2 = a1.transpose()
+        IV = np.matmul(a1, df.to_numpy())
+        IV = np.matmul(a2, IV)  
+        np_row = np.append(np_row, IV)
+    np_matrix = np.append(np_matrix, [np_row], axis=0)
+    np_row = np.empty((0, 1000), int)
+df3 = pd.DataFrame(np_matrix)
+df3
+df3.to_csv('216168486-216442428-212298535—T5MA.csv')
+
+Task 6:
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+distance_eu = pd.read_csv("216168486-216442428-212298535—T5EU.csv")
+distance_eu
+distance_eu = distance_eu.drop(['Unnamed: 0'], axis=1)
+data = pd.read_csv("216168486-216442428-212298535—T5DataNorm.csv")
+data = data.drop(['Unnamed: 0'], axis=1)
+data
+from sklearn.cluster import AgglomerativeClustering
+X = distance_eu.to_numpy()
+cluster = AgglomerativeClustering(n_clusters=3, affinity='precomputed', linkage = 'complete')
+output = cluster.fit_predict(X)
+output
+plt.scatter(X[:,0],X[:,1], c=cluster.labels_, cmap='rainbow')
+data["Class"] = output
+data
+
+# X are the features
+# y is the target
+
+X = np.array(data.drop(["Class"], axis=1))
+y = np.array(data["Class"])
+
+from sklearn.model_selection import train_test_split
+#This will split 80% of the data into the training set
+#and 1 - 0.6 = 20% of the data into the testing set
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 42)
+
+from sklearn.tree import DecisionTreeClassifier # Import Decision Tree Classifier
+clf = DecisionTreeClassifier()
+
+# Train Decision Tree Classifer
+clf = clf.fit(X_train, y_train)
+from sklearn import metrics #Import scikit-learn metrics module for accuracy calculation
+print("Accuracy:",metrics.accuracy_score(y_test, clf.predict(X_test)))
+from sklearn.model_selection import cross_val_score
+cvs = cross_val_score(clf, X_test, y_test, cv=3, scoring="accuracy")
+cvs
+cvs_train = cross_val_score(clf, X_train, y_train, cv=3, scoring="accuracy")
+cvs_train
+from sklearn.model_selection import cross_val_predict
+from sklearn.metrics import confusion_matrix 
+
+y_test_pred = cross_val_predict(clf, X_test, y_test, cv=3)
+cm = confusion_matrix(y_test, y_test_pred)
+cm
+from sklearn.metrics import precision_score, recall_score
+pr = precision_score(y_test, y_test_pred, average="weighted")
+r = recall_score(y_test, y_test_pred, average="weighted")
+pr
+r
+from c45 import C45
+clf_rule = C45(attrNames=["Home Team Possession %","Away Team Possession %", "Home Team Pass Success %", "Away Team Pass Success %", 
+                       "Home Team On Target Shots", "Away Team On Target Shots"])
+clf_rule.fit(X_train, y_train)
+C45(attrNames=["Home Team Possession %","Away Team Possession %", "Home Team Pass Success %", "Away Team Pass Success %", 
+                       "Home Team On Target Shots", "Away Team On Target Shots"])
+
+print(f'Accuracy: {clf_rule.score(X_test, y_test)}')
