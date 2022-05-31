@@ -1,0 +1,272 @@
+/*
+ * Code for class WEL_TBM_CONSTANTS
+ */
+
+#include "eif_eiffel.h"
+#include "../E1/estructure.h"
+
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+extern EIF_TYPED_VALUE F1049_9964(EIF_REFERENCE);
+extern EIF_TYPED_VALUE F1049_9965(EIF_REFERENCE);
+extern EIF_TYPED_VALUE F1049_9966(EIF_REFERENCE);
+extern EIF_TYPED_VALUE F1049_9967(EIF_REFERENCE);
+extern EIF_TYPED_VALUE F1049_9968(EIF_REFERENCE);
+extern EIF_TYPED_VALUE F1049_9969(EIF_REFERENCE);
+extern EIF_TYPED_VALUE F1049_9970(EIF_REFERENCE);
+extern EIF_TYPED_VALUE F1049_9971(EIF_REFERENCE);
+extern EIF_TYPED_VALUE F1049_9972(EIF_REFERENCE);
+extern EIF_TYPED_VALUE F1049_9973(EIF_REFERENCE);
+extern EIF_TYPED_VALUE F1049_9974(EIF_REFERENCE);
+extern EIF_TYPED_VALUE F1049_9975(EIF_REFERENCE);
+extern EIF_TYPED_VALUE F1049_9976(EIF_REFERENCE);
+extern EIF_TYPED_VALUE F1049_9977(EIF_REFERENCE);
+extern EIF_TYPED_VALUE F1049_9978(EIF_REFERENCE);
+extern EIF_TYPED_VALUE F1049_9979(EIF_REFERENCE);
+extern EIF_TYPED_VALUE F1049_9980(EIF_REFERENCE);
+extern EIF_TYPED_VALUE F1049_9981(EIF_REFERENCE);
+extern EIF_TYPED_VALUE F1049_9982(EIF_REFERENCE);
+extern EIF_TYPED_VALUE F1049_9983(EIF_REFERENCE);
+extern EIF_TYPED_VALUE F1049_9984(EIF_REFERENCE);
+extern EIF_TYPED_VALUE F1049_9985(EIF_REFERENCE);
+extern EIF_TYPED_VALUE F1049_9986(EIF_REFERENCE);
+extern void EIF_Minit1049(void);
+
+#ifdef __cplusplus
+}
+#endif
+
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
+#ifdef __cplusplus
+}
+#endif
+
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/* {WEL_TBM_CONSTANTS}.tbm_getpos */
+EIF_TYPED_VALUE F1049_9964 (EIF_REFERENCE Current)
+{
+	EIF_TYPED_VALUE r;
+	r.type = SK_INT32;
+	r.it_i4 = (EIF_INTEGER_32) ((EIF_INTEGER_32) 1024L);
+	return r;
+}
+
+/* {WEL_TBM_CONSTANTS}.tbm_getrangemin */
+EIF_TYPED_VALUE F1049_9965 (EIF_REFERENCE Current)
+{
+	EIF_TYPED_VALUE r;
+	r.type = SK_INT32;
+	r.it_i4 = (EIF_INTEGER_32) ((EIF_INTEGER_32) 1025L);
+	return r;
+}
+
+/* {WEL_TBM_CONSTANTS}.tbm_getrangemax */
+EIF_TYPED_VALUE F1049_9966 (EIF_REFERENCE Current)
+{
+	EIF_TYPED_VALUE r;
+	r.type = SK_INT32;
+	r.it_i4 = (EIF_INTEGER_32) ((EIF_INTEGER_32) 1026L);
+	return r;
+}
+
+/* {WEL_TBM_CONSTANTS}.tbm_gettic */
+EIF_TYPED_VALUE F1049_9967 (EIF_REFERENCE Current)
+{
+	EIF_TYPED_VALUE r;
+	r.type = SK_INT32;
+	r.it_i4 = (EIF_INTEGER_32) ((EIF_INTEGER_32) 1027L);
+	return r;
+}
+
+/* {WEL_TBM_CONSTANTS}.tbm_settic */
+EIF_TYPED_VALUE F1049_9968 (EIF_REFERENCE Current)
+{
+	EIF_TYPED_VALUE r;
+	r.type = SK_INT32;
+	r.it_i4 = (EIF_INTEGER_32) ((EIF_INTEGER_32) 1028L);
+	return r;
+}
+
+/* {WEL_TBM_CONSTANTS}.tbm_setpos */
+EIF_TYPED_VALUE F1049_9969 (EIF_REFERENCE Current)
+{
+	EIF_TYPED_VALUE r;
+	r.type = SK_INT32;
+	r.it_i4 = (EIF_INTEGER_32) ((EIF_INTEGER_32) 1029L);
+	return r;
+}
+
+/* {WEL_TBM_CONSTANTS}.tbm_setrange */
+EIF_TYPED_VALUE F1049_9970 (EIF_REFERENCE Current)
+{
+	EIF_TYPED_VALUE r;
+	r.type = SK_INT32;
+	r.it_i4 = (EIF_INTEGER_32) ((EIF_INTEGER_32) 1030L);
+	return r;
+}
+
+/* {WEL_TBM_CONSTANTS}.tbm_setrangemin */
+EIF_TYPED_VALUE F1049_9971 (EIF_REFERENCE Current)
+{
+	EIF_TYPED_VALUE r;
+	r.type = SK_INT32;
+	r.it_i4 = (EIF_INTEGER_32) ((EIF_INTEGER_32) 1031L);
+	return r;
+}
+
+/* {WEL_TBM_CONSTANTS}.tbm_setrangemax */
+EIF_TYPED_VALUE F1049_9972 (EIF_REFERENCE Current)
+{
+	EIF_TYPED_VALUE r;
+	r.type = SK_INT32;
+	r.it_i4 = (EIF_INTEGER_32) ((EIF_INTEGER_32) 1032L);
+	return r;
+}
+
+/* {WEL_TBM_CONSTANTS}.tbm_cleartics */
+EIF_TYPED_VALUE F1049_9973 (EIF_REFERENCE Current)
+{
+	EIF_TYPED_VALUE r;
+	r.type = SK_INT32;
+	r.it_i4 = (EIF_INTEGER_32) ((EIF_INTEGER_32) 1033L);
+	return r;
+}
+
+/* {WEL_TBM_CONSTANTS}.tbm_setsel */
+EIF_TYPED_VALUE F1049_9974 (EIF_REFERENCE Current)
+{
+	EIF_TYPED_VALUE r;
+	r.type = SK_INT32;
+	r.it_i4 = (EIF_INTEGER_32) ((EIF_INTEGER_32) 1034L);
+	return r;
+}
+
+/* {WEL_TBM_CONSTANTS}.tbm_setselstart */
+EIF_TYPED_VALUE F1049_9975 (EIF_REFERENCE Current)
+{
+	EIF_TYPED_VALUE r;
+	r.type = SK_INT32;
+	r.it_i4 = (EIF_INTEGER_32) ((EIF_INTEGER_32) 1035L);
+	return r;
+}
+
+/* {WEL_TBM_CONSTANTS}.tbm_setselend */
+EIF_TYPED_VALUE F1049_9976 (EIF_REFERENCE Current)
+{
+	EIF_TYPED_VALUE r;
+	r.type = SK_INT32;
+	r.it_i4 = (EIF_INTEGER_32) ((EIF_INTEGER_32) 1036L);
+	return r;
+}
+
+/* {WEL_TBM_CONSTANTS}.tbm_getptics */
+EIF_TYPED_VALUE F1049_9977 (EIF_REFERENCE Current)
+{
+	EIF_TYPED_VALUE r;
+	r.type = SK_INT32;
+	r.it_i4 = (EIF_INTEGER_32) ((EIF_INTEGER_32) 1038L);
+	return r;
+}
+
+/* {WEL_TBM_CONSTANTS}.tbm_getticpos */
+EIF_TYPED_VALUE F1049_9978 (EIF_REFERENCE Current)
+{
+	EIF_TYPED_VALUE r;
+	r.type = SK_INT32;
+	r.it_i4 = (EIF_INTEGER_32) ((EIF_INTEGER_32) 1039L);
+	return r;
+}
+
+/* {WEL_TBM_CONSTANTS}.tbm_getnumtics */
+EIF_TYPED_VALUE F1049_9979 (EIF_REFERENCE Current)
+{
+	EIF_TYPED_VALUE r;
+	r.type = SK_INT32;
+	r.it_i4 = (EIF_INTEGER_32) ((EIF_INTEGER_32) 1040L);
+	return r;
+}
+
+/* {WEL_TBM_CONSTANTS}.tbm_getselstart */
+EIF_TYPED_VALUE F1049_9980 (EIF_REFERENCE Current)
+{
+	EIF_TYPED_VALUE r;
+	r.type = SK_INT32;
+	r.it_i4 = (EIF_INTEGER_32) ((EIF_INTEGER_32) 1041L);
+	return r;
+}
+
+/* {WEL_TBM_CONSTANTS}.tbm_getselend */
+EIF_TYPED_VALUE F1049_9981 (EIF_REFERENCE Current)
+{
+	EIF_TYPED_VALUE r;
+	r.type = SK_INT32;
+	r.it_i4 = (EIF_INTEGER_32) ((EIF_INTEGER_32) 1042L);
+	return r;
+}
+
+/* {WEL_TBM_CONSTANTS}.tbm_clearsel */
+EIF_TYPED_VALUE F1049_9982 (EIF_REFERENCE Current)
+{
+	EIF_TYPED_VALUE r;
+	r.type = SK_INT32;
+	r.it_i4 = (EIF_INTEGER_32) ((EIF_INTEGER_32) 1043L);
+	return r;
+}
+
+/* {WEL_TBM_CONSTANTS}.tbm_getlinesize */
+EIF_TYPED_VALUE F1049_9983 (EIF_REFERENCE Current)
+{
+	EIF_TYPED_VALUE r;
+	r.type = SK_INT32;
+	r.it_i4 = (EIF_INTEGER_32) ((EIF_INTEGER_32) 1048L);
+	return r;
+}
+
+/* {WEL_TBM_CONSTANTS}.tbm_getpagesize */
+EIF_TYPED_VALUE F1049_9984 (EIF_REFERENCE Current)
+{
+	EIF_TYPED_VALUE r;
+	r.type = SK_INT32;
+	r.it_i4 = (EIF_INTEGER_32) ((EIF_INTEGER_32) 1046L);
+	return r;
+}
+
+/* {WEL_TBM_CONSTANTS}.tbm_setlinesize */
+EIF_TYPED_VALUE F1049_9985 (EIF_REFERENCE Current)
+{
+	EIF_TYPED_VALUE r;
+	r.type = SK_INT32;
+	r.it_i4 = (EIF_INTEGER_32) ((EIF_INTEGER_32) 1047L);
+	return r;
+}
+
+/* {WEL_TBM_CONSTANTS}.tbm_setpagesize */
+EIF_TYPED_VALUE F1049_9986 (EIF_REFERENCE Current)
+{
+	EIF_TYPED_VALUE r;
+	r.type = SK_INT32;
+	r.it_i4 = (EIF_INTEGER_32) ((EIF_INTEGER_32) 1045L);
+	return r;
+}
+
+void EIF_Minit1049 (void)
+{
+	GTCX
+}
+
+
+#ifdef __cplusplus
+}
+#endif

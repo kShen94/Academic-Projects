@@ -1,0 +1,52 @@
+
+database: system execution failed.
+Following is the set of recorded exceptions:
+
+******************************** Thread exception *****************************
+In thread           Root thread            0x0 (thread id)
+*******************************************************************************
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+DATABASE            make @5                object_equality_for_keys:    
+<000002AF365C7668>                         Postcondition violated.       Fail
+-------------------------------------------------------------------------------
+DATABASE            make @5                                             
+<000002AF365C7668>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+EXAMPLE_DATABASE_TESTS
+                    make @1                
+<000002AF365C7608>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+TEST_DATABASE       make @1                                             
+<000002AF365C75A8>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+TEST_DATABASE       root's creation                                     
+<000002AF365C75A8>                         Routine failure.              Exit
+-------------------------------------------------------------------------------
+
+database: system execution failed.
+Following is the set of recorded exceptions:
+
+******************************** Thread exception *****************************
+In thread           Root thread            0x0 (thread id)
+*******************************************************************************
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+DATABASE            make @5                object_equality_for_keys:    
+<000001F442B4E668>                         Postcondition violated.       Fail
+-------------------------------------------------------------------------------
+DATABASE            make @5                                             
+<000001F442B4E668>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+EXAMPLE_DATABASE_TESTS
+                    make @1                
+<000001F442B4E608>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+TEST_DATABASE       make @1                                             
+<000001F442B4E5A8>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+TEST_DATABASE       root's creation                                     
+<000001F442B4E5A8>                         Routine failure.              Exit
+-------------------------------------------------------------------------------

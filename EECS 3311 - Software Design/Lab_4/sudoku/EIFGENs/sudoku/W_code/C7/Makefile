@@ -1,0 +1,72 @@
+INCLUDE_PATH =  -I"C:\Program Files\Eiffel Software\EiffelStudio 18.07 GPL\library\wel\spec\windows\include" -I"C:\Program Files\Eiffel Software\EiffelStudio 18.07 GPL\library\time\spec\include" -I"C:\Program Files\Eiffel Software\EiffelStudio 18.07 GPL\library\vision2\spec\include" -I"C:\Program Files\Eiffel Software\EiffelStudio 18.07 GPL\C_library\zlib"
+SHELL = \bin\sh
+CC = cl
+CPP = cl
+CFLAGS = -Od -MT -w -nologo -D_WIN32_WINNT=0x0500 -DWINVER=0x0500 -D_CRT_SECURE_NO_DEPRECATE -D_UNICODE -DUNICODE -DWIN32_LEAN_AND_MEAN  -DEIF_THREADS  -DEIF_IEEE_BEHAVIOR -DWORKBENCH -I"C:\Program Files\Eiffel Software\EiffelStudio 18.07 GPL\studio\spec\win64\include" -I. $(INCLUDE_PATH)
+CPPFLAGS = -Od -MT -w -nologo -D_WIN32_WINNT=0x0500 -DWINVER=0x0500 -D_CRT_SECURE_NO_DEPRECATE -D_UNICODE -DUNICODE -DWIN32_LEAN_AND_MEAN  -DEIF_THREADS  -DEIF_IEEE_BEHAVIOR -DWORKBENCH -I"C:\Program Files\Eiffel Software\EiffelStudio 18.07 GPL\studio\spec\win64\include" -I. $(INCLUDE_PATH)
+LDFLAGS = -STACK:5000000 -NODEFAULTLIB:libc
+CCLDFLAGS = -STACK:5000000 -NODEFAULTLIB:libc  -SUBSYSTEM:WINDOWS
+LDSHAREDFLAGS =  -dll -incremental:no -NODEFAULTLIB:libc
+EIFLIB = "C:\Program Files\Eiffel Software\EiffelStudio 18.07 GPL\studio\spec\win64\lib\msc_vc140\mtwkbench.lib"
+EIFTEMPLATES = C:\Program Files\Eiffel Software\EiffelStudio 18.07 GPL\studio\config\win64\templates
+LIBS = 
+MAKE = nmake -s -nologo
+AR = 
+LD = 
+MKDEP =   --
+MV = copy
+CP = copy
+RANLIB = echo
+RM = del
+FILE_EXIST = if exist
+RMDIR = rd
+X2C = "C:\Program Files\Eiffel Software\EiffelStudio 18.07 GPL\studio\spec\win64\bin\x2c.exe"
+SHAREDLINK = link
+SHAREDLIBS = USER32.lib WS2_32.lib ADVAPI32.lib GDI32.lib SHELL32.lib MSIMG32.lib \
+	COMDLG32.lib UUID.lib OLE32.lib OLEAUT32.lib COMCTL32.lib MPR.LIB SHLWAPI.LIB WINSPOOL.LIB 
+SHARED_SUFFIX = .dll
+COMMAND_MAKEFILE = 
+START_TEST = if not exist finished 
+END_TEST =  
+CREATE_TEST = echo "finished" >> finished 
+SYSTEM_IN_DYNAMIC_LIB = sudoku.dll 
+
+.SUFFIXES:.cpp .obj 
+
+.c.obj:
+	$(CC) $(CFLAGS) -c $<
+
+.cpp.obj:
+	$(CPP) $(CPPFLAGS) -c $<
+
+OBJECTS = big_file_C7_c.obj 
+
+OLDOBJECTS =  es1158.obj es1158d.obj es1157.obj es1157d.obj es1156.obj es1156d.obj et1155.obj \
+	et1155d.obj ki1182.obj ki1182d.obj we1187.obj we1187d.obj we1186.obj we1186d.obj \
+	ev1185.obj ev1185d.obj we1184.obj we1184d.obj we1183.obj we1183d.obj ki1181.obj \
+	ki1181d.obj uc1180.obj uc1180d.obj uc1179.obj uc1179d.obj we1178.obj we1178d.obj \
+	we1177.obj we1177d.obj we1176.obj we1176d.obj we1175.obj we1175d.obj ev1174.obj \
+	ev1174d.obj we1173.obj we1173d.obj we1172.obj we1172d.obj we1171.obj we1171d.obj \
+	we1170.obj we1170d.obj we1169.obj we1169d.obj we1168.obj we1168d.obj we1167.obj \
+	we1167d.obj ev1166.obj ev1166d.obj uc1165.obj uc1165d.obj we1164.obj we1164d.obj \
+	we1163.obj we1163d.obj we1162.obj we1162d.obj we1161.obj we1161d.obj we1160.obj \
+	we1160d.obj ev1159.obj ev1159d.obj 
+
+all::  Cobj7.lib
+
+Cobj7.lib: $(OBJECTS) Makefile
+	if exist $@ $(RM) $@
+	lib -nologo -OUT:$@ $(OBJECTS)
+	$(CREATE_TEST)
+	$(RM) $(OBJECTS)
+
+
+clean: local_clean
+clobber: local_clobber
+
+local_clean::
+	$(RM) core finished *.o
+
+local_clobber:: local_clean
+	$(RM) Makefile
+

@@ -1,0 +1,160 @@
+
+sudoku: system execution failed.
+Following is the set of recorded exceptions:
+
+******************************** Thread exception *****************************
+In thread           Root thread            0x0 (thread id)
+*******************************************************************************
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+ARRAY               item @3                valid_index:                 
+<0000019A7C31A198>                         Precondition violated.        Fail
+-------------------------------------------------------------------------------
+ETF_MODEL           undo @2                                             
+<0000019A7C31A008>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+ETF_UNDO            undo @3                                             
+<0000019A7C36C288>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+PROCEDURE           fast_call                                           
+<0000019A7C36C468>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+PROCEDURE           call @3                                             
+<0000019A7C36C468>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+PROCEDURE           apply @2                                            
+<0000019A7C36C468>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+ETF_ABSTRACT_UI     run_input_commands @2                               
+<0000019A7C36A368>  (From ETF_ABSTRACT_UI_INTERFACE)
+                                           Routine failure.              Fail
+-------------------------------------------------------------------------------
+ETF_SOFTWARE_OPERATION
+                    execute_without_log @7 
+<0000019A7C319FA8>  (From ETF_SOFTWARE_OPERATION_INTERFACE)
+                                           Routine failure.              Fail
+-------------------------------------------------------------------------------
+ROOT                handle_interactive_mode @20
+<0000019A7C3195A8>  (From ETF_CMD_LINE_ROOT_INTERFACE)
+                                           Routine failure.              Fail
+-------------------------------------------------------------------------------
+ROOT                make @21                                            
+<0000019A7C3195A8>  (From ETF_CMD_LINE_ROOT_INTERFACE)
+                                           Routine failure.              Fail
+-------------------------------------------------------------------------------
+ROOT                make @16                                            
+<0000019A7C3195A8>  (From ETF_ROOT_INTERFACE)
+                                           Routine failure.              Rescue
+-------------------------------------------------------------------------------
+ROOT                root's creation                                     
+<0000019A7C3195A8>                         Routine failure.              Exit
+-------------------------------------------------------------------------------
+
+sudoku: system execution failed.
+Following is the set of recorded exceptions:
+
+******************************** Thread exception *****************************
+In thread           Root thread            0x0 (thread id)
+*******************************************************************************
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+CONSOLE             console_ps             FILE: unable to write STRING object.:
+<0000018C97E5A318>                         Runtime I/O error.            Fail
+-------------------------------------------------------------------------------
+CONSOLE             console_ps                                          
+<0000018C97E5A318>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+CONSOLE             put_string @5                                       
+<0000018C97E5A318>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+STD_FILES           put_string @2                                       
+<0000018C97E5A2F8>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+STD_FILES           print @2                                            
+<0000018C97E5A2F8>  (From ANY)             Routine failure.              Fail
+-------------------------------------------------------------------------------
+ROOT                make @76                                            
+<0000018C97E4C5A8>  (From ETF_CMD_LINE_ROOT_INTERFACE)
+                                           Routine failure.              Fail
+-------------------------------------------------------------------------------
+ROOT                make @16                                            
+<0000018C97E4C5A8>  (From ETF_ROOT_INTERFACE)
+                                           Routine failure.              Rescue
+-------------------------------------------------------------------------------
+ROOT                root's creation                                     
+<0000018C97E4C5A8>                         Routine failure.              Exit
+-------------------------------------------------------------------------------
+
+sudoku: system execution failed.
+Following is the set of recorded exceptions:
+
+******************************** Thread exception *****************************
+In thread           Root thread            0x0 (thread id)
+*******************************************************************************
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+CONSOLE             console_ps             FILE: unable to write STRING object.:
+<000001C1E7948318>                         Runtime I/O error.            Fail
+-------------------------------------------------------------------------------
+CONSOLE             console_ps                                          
+<000001C1E7948318>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+CONSOLE             put_string @5                                       
+<000001C1E7948318>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+STD_FILES           put_string @2                                       
+<000001C1E79482F8>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+STD_FILES           print @2                                            
+<000001C1E79482F8>  (From ANY)             Routine failure.              Fail
+-------------------------------------------------------------------------------
+ROOT                make @76                                            
+<000001C1E793A5A8>  (From ETF_CMD_LINE_ROOT_INTERFACE)
+                                           Routine failure.              Fail
+-------------------------------------------------------------------------------
+ROOT                make @16                                            
+<000001C1E793A5A8>  (From ETF_ROOT_INTERFACE)
+                                           Routine failure.              Rescue
+-------------------------------------------------------------------------------
+ROOT                root's creation                                     
+<000001C1E793A5A8>                         Routine failure.              Exit
+-------------------------------------------------------------------------------
+
+sudoku: system execution failed.
+Following is the set of recorded exceptions:
+
+******************************** Thread exception *****************************
+In thread           Root thread            0x0 (thread id)
+*******************************************************************************
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+CONSOLE             console_ps             FILE: unable to write STRING object.:
+<000002BC1DF88318>                         Runtime I/O error.            Fail
+-------------------------------------------------------------------------------
+CONSOLE             console_ps                                          
+<000002BC1DF88318>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+CONSOLE             put_string @5                                       
+<000002BC1DF88318>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+STD_FILES           put_string @2                                       
+<000002BC1DF882F8>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+STD_FILES           print @2                                            
+<000002BC1DF882F8>  (From ANY)             Routine failure.              Fail
+-------------------------------------------------------------------------------
+ROOT                make @76                                            
+<000002BC1DF7A5A8>  (From ETF_CMD_LINE_ROOT_INTERFACE)
+                                           Routine failure.              Fail
+-------------------------------------------------------------------------------
+ROOT                make @16                                            
+<000002BC1DF7A5A8>  (From ETF_ROOT_INTERFACE)
+                                           Routine failure.              Rescue
+-------------------------------------------------------------------------------
+ROOT                root's creation                                     
+<000002BC1DF7A5A8>                         Routine failure.              Exit
+-------------------------------------------------------------------------------
