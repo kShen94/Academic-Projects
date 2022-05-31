@@ -1,0 +1,174 @@
+%% ----------------------------------------------------------
+
+%% EECS 3401 Assignment 3
+
+%% Family name: Shen
+
+%% Given name: Kevin
+
+%% Student number: 212298535
+
+
+
+%%    Answers to Questions 6-10
+
+%% Instructions: 
+
+%% Please edit this file in the following way to answer the text
+%% questions of Assignment 1. 
+
+%% - Please replace any occurence of '[yes/no]' with either 'yes' or
+%% 'no' to answer the respective question.
+
+%% - Replace any occurence of '[explain N words]' or '[if yes (resp.
+%%   no), explain N words]' with an explanation containing no more
+%%   than N words if the condition (yes/no) applies to your previous
+%%   answer.
+
+%% - Do not remove any other lines, in particular do not remove the
+%%   task-tags (<tasknumber>)
+
+%% - Any line starting with a '%' will be ignored.
+
+%% - Submit this file electronically.
+
+%% ----------------------------------------------------------
+
+
+
+%% 6. Which of the four heuristics are admissible?
+
+%%  - hfn_null
+<6.1>
+no
+
+%%  - hfn_misplaced
+<6.2>
+yes
+
+%%  - hfn_manhattan
+<6.3>
+yes
+
+%%  - hfn_inversions
+<6.4>
+yes
+
+
+
+
+%% /* ------------------------------------------------------ */
+
+% 7. Suppose for sliding a tile to the left we would change the
+% cost from 1 to 0.5 and leave all the other moves the same cost.
+% Does this affect the admissibility of the heuristics? Which of
+% them are admissible now?
+
+
+%%  - hfn_null
+<7.1.1>
+yes
+
+<7.1.2>
+[if no explain in 100 words or less] 
+
+
+%%  - hfn_misplaced
+<7.2.1>
+yes
+
+<7.2.2>
+[if no explain in 100 words or less]
+
+
+%%  - hfn_manhattan
+<7.3.1>
+yes
+
+<7.3.2>
+[if no explain in 100 words or less]
+
+
+%%  - hfn_inversions
+<7.4.1>
+yes
+
+<7.4.2>
+[if no explain in 100 words or less]
+
+
+
+%% /* ------------------------------------------------------ */
+
+% 8. Now suppose we would change the cost for sliding a tile to the
+% left to 2 and leave all the other moves the same cost. Does this
+% now affect the admissibility of the four heuristics? Again, which
+% of them are admissible?
+
+%%  - hfn_null
+<8.1.1>
+no
+
+<8.1.2>
+This increases the the amount of expanded states and causes it to search for every possible state so it still is not admissible
+
+
+%%  - hfn_misplaced
+<8.2.1>
+yes
+
+<8.2.2>
+This increases the the amount of expanded states so it still is not admissible
+
+
+%%  - hfn_manhattan
+<8.3.1>
+yes
+
+<8.3.2>
+[if no explain in 100 words or less]
+
+
+%%  - hfn_inversions
+<8.4.1>
+no
+
+<8.4.2>
+This causes it to search for other paths due to not being able to move left and forces it to expand a large amount of states to achieve the goal.
+
+
+
+%% /* ------------------------------------------------------ */
+
+% 9. In the former modification (sliding to the LEFT costs 0.5), can
+% you say for sure which heuristic will be the fastest (expand the
+% least number of states) in finding a (not necessary optimal)
+% solution? Explain.
+<9.1>
+yes
+
+<9.2>
+It was shown that when the cost was reduced, hfn_manhattan expanded less states than when the cost was at 1 and 2, while hfm_misplaced expanded 
+a few more states. hfn_null always expanded a large amount of states.
+
+%% /* ------------------------------------------------------ */
+
+% 10. One can obtain another heuristic for the N-puzzle by relaxing the
+% problem as follows: let's say that a tile can move from square A to
+% square B if B is blank.  The exact solution to this problem defines
+% Gaschnig's heuristic. Explain why Gaschnig's heuristic is at
+% least as accurate as hfn_misplaced.  Show some cases where it
+% is more accurate than both the hfn_misplaced} and 
+% hfn_manhattan} heuristics.  Can you suggest a way to calculate
+% Gaschnig's heuristic efficiently?
+
+<10.1>
+It is as accurate hfn_misplaced because it has the same conditions as it by only checking the tiles next to the blank.
+
+<10.2>
+Gaschnig's heuristic would be more accurate if it relax some conditions by
+allowing movement to any space, regardless whether they have a tile or blank.
+This would allow a solution by moving the tiles directly to its proper positions.
+
+<10.3>
+One way to calculate Gaschnig's heuristic is to count the amount of moves it takes to reach the goal.
